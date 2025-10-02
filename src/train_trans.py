@@ -19,7 +19,7 @@ def train(model, device, train_loader, optimizer, criterion, scheduler=None):
         batch = batch.to(device)
         output = model(batch)
         # label = batch.y
-        label  = batch.y[:, 0].view(-1, 1)      # 只取第一列 pressure，形状匹配
+        label  = batch.y[:, 0].view(-1, 1)      # pressure
         loss = criterion(output, label)  # masked optimisation
         train_loss[i] = loss.clone()
         loss.backward()

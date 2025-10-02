@@ -3,7 +3,7 @@ import argparse
 
 def inspect_file(filepath):
     """
-    打開一個 HDF5 檔案，打印出第一個樣本的所有數據集名稱 (keys)。
+    Open an HDF5 file and print all dataset names (keys) of the first sample.
     """
     try:
         with h5py.File(filepath, 'r') as f:
@@ -11,14 +11,14 @@ def inspect_file(filepath):
                 print(f"Error: The HDF5 file '{filepath}' is empty or has no top-level groups.")
                 return
 
-            # 獲取第一個樣本的 ID
+            # Get the ID of the first sample
             first_sample_id = sorted(list(f.keys()))[0]
             print(f"--- Inspecting sample '{first_sample_id}' in '{filepath}' ---")
             
             sample_group = f[first_sample_id]
             
             print("Available dataset keys for this sample are:")
-            # 打印出這個樣本中所有數據集的名稱
+            # Print all dataset names in this sample
             for key in sample_group.keys():
                 print(f"- {key}")
 
