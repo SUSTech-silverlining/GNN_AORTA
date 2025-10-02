@@ -21,11 +21,11 @@ This repository is organized as follows to provide a clear roadmap of the projec
 
 ```
 .
-├── 📂 g_unet/               # Baseline Model 1: Multi-scale Graph U-Net
+├── 📂 g_unet_test/               # Baseline Model 1: Multi-scale Graph U-Net
 │   └── main.ipynb
-├── 📂 lab-gatr/             # Baseline Model 2: GNN with a Transformer
+├── 📂 lab-gatr_test/             # Baseline Model 2: GNN with a Transformer
 │   └── main.ipynb
-├── 📂 single_scale/         # Baseline Model 3: Single-Scale GNN (MGN)
+├── 📂 single_scale_test/         # Baseline Model 3: Single-Scale GNN (MGN)
 │   └── main.ipynb
 ├── 📂 load_suk_data/        # Custom scripts for processing a specific external dataset
 └── 📂 src/                  # Core source code
@@ -38,8 +38,8 @@ This repository is organized as follows to provide a clear roadmap of the projec
   * **/g\_unet, /lab-gatr, /single\_scale**: Each directory corresponds to one of the three baseline models I implemented. The `main.ipynb` file in each contains a complete experimental pipeline, from data loading and model training to evaluation.
   * **/load\_suk\_data/**: During our research, we needed to integrate a public dataset that was incompatible with our existing pipelines. This folder contains the scripts I **independently authored to parse, clean, and transform this dataset**, resolving critical compatibility issues.
   * **/src/**: This directory contains the project's core modules.
-      * `dataset.py` & `train.py`: These are the general-purpose data loading and training modules used for the `g_unet` and `single_scale` models. I **heavily refactored** these from existing laboratory code to improve modularity and flexibility.
-      * `dataset_trans.py` & `train_trans.py`: These are **custom-tailored versions** built specifically for the `lab-gatr` model to handle its unique data transformation requirements.
+      * `dataset.py` & `train.py`: These are the general-purpose data loading and training modules used for the `g_unet` and `single_scale` models. I **refactored** these from existing laboratory code to improve modularity and flexibility.
+      * `dataset_trans.py` & `train_trans.py`: These are **custom-tailored versions** built specifically for the `lab-gatr` model to handle its unique requirements.
 
 -----
 
@@ -64,5 +64,5 @@ My work on this project can be broken down into three main areas: model implemen
 
 #### 📊 3. Normalization Strategy & Tuning
 
-  * **Focused Research on Normalization**: A **major focus of my work** on this project was to investigate and fine-tune the **normalization methods** within the models.
-  * **Systematic Experimentation**: To improve training stability and performance, I designed and executed a series of systematic experiments. This core task involved evaluating various normalization layers (e.g., `LayerNorm`, `BatchNorm`) at different points within the model architectures. Through this rigorous process, I identified the optimal normalization strategy for our specific graph-structured data.
+  * **Focused Research on Normalization**: Another focus of my work on this project was to investigate and fine-tune the **normalization methods** within the models.
+  * **Systematic Experimentation**: To improve training stability and performance, I executed a series of systematic experiments. This core task involved evaluating various normalization layers (e.g., `LayerNorm`, `BatchNorm`) at different points within the model architectures. Through this rigorous process, I identified the optimal normalization strategy for our specific graph-structured data.
